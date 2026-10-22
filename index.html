@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Little Internet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+
+  <header class="home-header">
+    <p class="home-eyebrow" data-editable="eyebrow">A LITTLE CORNER OF THE INTERNET</p>
+    <h1 data-editable="title">My Little Internet ♡</h1>
+    <p class="home-subtitle" data-editable="subtitle">
+      A collection of my thoughts, characters, art, and little everyday things.
+    </p>
+    <p class="home-decoration" data-editable="decoration">✿ ୨୧ ✿</p>
+  </header>
+
+  <main class="home-main">
+    <section class="home-welcome">
+      <h2 data-editable="welcomeTitle">Welcome to my scrapbook!</h2>
+      <p data-editable="welcomeText">
+        Take a look around, explore a few pages, and make yourself at home.
+      </p>
+    </section>
+
+
+<a href="art.html" class="home-link-card">
+  <span class="home-card-icon">📌</span>
+  <span class="home-card-title">My Little Moodboard</span>
+  <span class="home-card-description">
+    Pretty pictures, tiny thoughts, and things to keep ♡
+  </span>
+  <span class="home-card-arrow">→</span>
+</a>
+
+    <section class="home-links" aria-label="Website pages">
+      <a class="home-link-card" href="blog.html">
+        <span class="home-card-icon" aria-hidden="true">♡</span>
+        <span class="home-card-title" data-editable="blogTitle">Personal Blog</span>
+        <span class="home-card-description" data-editable="blogDescription">Thoughts, diary entries, and little updates.</span>
+        <span class="home-card-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="home-link-card" href="ocs.html">
+        <span class="home-card-icon" aria-hidden="true">✧</span>
+        <span class="home-card-title" data-editable="ocsTitle">OC Archive</span>
+        <span class="home-card-description" data-editable="ocsDescription">Meet my characters and explore their stories.</span>
+        <span class="home-card-arrow" aria-hidden="true">↗</span>
+      </a>
+
+
+      </a>
+
+      <a class="home-link-card" href="balance.html">
+        <span class="home-card-icon" aria-hidden="true">☼</span>
+        <span class="home-card-title" data-editable="balanceTitle">Balance Tracker</span>
+        <span class="home-card-description" data-editable="balanceDescription">Keep an eye on my money and transactions.</span>
+        <span class="home-card-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="home-link-card" href="countdown.html">
+        <span class="home-card-icon" aria-hidden="true">⏳</span>
+        <span class="home-card-title" data-editable="countdownTitle">Countdowns</span>
+        <span class="home-card-description" data-editable="countdownDescription">Little reminders of things to look forward to.</span>
+        <span class="home-card-arrow" aria-hidden="true">↗</span>
+      </a>
+    </section>
+
+    <section class="home-footer-note">
+      <p data-editable="footerText">Made with love, a little daydreaming, and too much stationery. ♡</p>
+    </section>
+  </main>
+
+  <footer class="home-footer">
+    <span data-editable="footerLabel">MY LITTLE CORNER • EST. WITH LOVE</span>
+  </footer>
+
+  <!-- Editor launcher -->
+
+
+  <!-- Editor control panel -->
+  <aside id="home-editor-panel" class="home-editor-panel" hidden>
+    <div class="home-editor-heading">
+      <div>
+        <p class="home-editor-kicker">YOUR LITTLE WORKSHOP</p>
+        <h2>Homepage editor</h2>
+      </div>
+      <button type="button" id="home-editor-close" aria-label="Close editor">×</button>
+    </div>
+
+    <p class="home-editor-help">
+      Change something here, or turn on direct editing and click the text on your page.
+      Changes are previewed immediately.
+    </p>
+
+    <div class="home-editor-actions">
+      <button type="button" id="home-direct-edit">✎ Turn on direct editing</button>
+      <button type="button" id="home-save">Save changes</button>
+    </div>
+
+    <p id="home-editor-status" role="status" aria-live="polite"></p>
+
+    <details open>
+      <summary>Words and headings</summary>
+
+      <label for="edit-eyebrow">Small top label</label>
+      <input id="edit-eyebrow" data-setting="eyebrow">
+
+      <label for="edit-title">Main title</label>
+      <input id="edit-title" data-setting="title">
+
+      <label for="edit-subtitle">Subtitle</label>
+      <textarea id="edit-subtitle" data-setting="subtitle" rows="3"></textarea>
+
+      <label for="edit-decoration">Decoration (text or symbols)</label>
+      <input id="edit-decoration" data-setting="decoration">
+
+      <label for="edit-welcomeTitle">Welcome heading</label>
+      <input id="edit-welcomeTitle" data-setting="welcomeTitle">
+
+      <label for="edit-welcomeText">Welcome message</label>
+      <textarea id="edit-welcomeText" data-setting="welcomeText" rows="3"></textarea>
+
+      <label for="edit-footerText">Bottom message</label>
+      <textarea id="edit-footerText" data-setting="footerText" rows="2"></textarea>
+
+      <label for="edit-footerLabel">Footer label</label>
+      <input id="edit-footerLabel" data-setting="footerLabel">
+    </details>
+
+    <details open>
+      <summary>Navigation cards</summary>
+
+      <label for="edit-blogTitle">Blog card title</label>
+      <input id="edit-blogTitle" data-setting="blogTitle">
+      <label for="edit-blogDescription">Blog card description</label>
+      <textarea id="edit-blogDescription" data-setting="blogDescription" rows="2"></textarea>
+
+      <label for="edit-ocsTitle">OC Archive card title</label>
+      <input id="edit-ocsTitle" data-setting="ocsTitle">
+      <label for="edit-ocsDescription">OC Archive description</label>
+      <textarea id="edit-ocsDescription" data-setting="ocsDescription" rows="2"></textarea>
+
+      <input id="edit-artTitle" data-setting="artTitle">
+      <textarea id="edit-artDescription" data-setting="artDescription" rows="2"></textarea>
+
+      <label for="edit-balanceTitle">Balance Tracker card title</label>
+      <input id="edit-balanceTitle" data-setting="balanceTitle">
+      <label for="edit-balanceDescription">Balance Tracker description</label>
+      <textarea id="edit-balanceDescription" data-setting="balanceDescription" rows="2"></textarea>
+
+      <label for="edit-countdownTitle">Countdowns card title</label>
+      <input id="edit-countdownTitle" data-setting="countdownTitle">
+      <label for="edit-countdownDescription">Countdowns description</label>
+      <textarea id="edit-countdownDescription" data-setting="countdownDescription" rows="2"></textarea>
+    </details>
+
+    <details open>
+      <summary>Scrapbook colors</summary>
+
+      <label for="edit-paper">Paper background</label>
+      <input id="edit-paper" type="color" data-color="paper">
+
+      <label for="edit-card">Card color</label>
+      <input id="edit-card" type="color" data-color="card">
+
+      <label for="edit-ink">Text color</label>
+      <input id="edit-ink" type="color" data-color="ink">
+
+      <label for="edit-accent">Accent color</label>
+      <input id="edit-accent" type="color" data-color="accent">
+
+      <label for="edit-border">Border color</label>
+      <input id="edit-border" type="color" data-color="border">
+    </details>
+
+    <div class="home-editor-actions">
+      <button type="button" id="home-export">Download backup</button>
+      <button type="button" id="home-import">Import backup</button>
+      <input type="file" id="home-import-file" accept=".json,application/json" hidden>
+    </div>
+
+    <button type="button" id="home-reset-preview" class="home-reset-button">
+      Discard unsaved changes
+    </button>
+
+    <p class="home-editor-footnote">
+      Your saved homepage settings stay in this browser. Download a backup if you want
+      to keep a separate copy.
+    </p>
+  </aside>
+<script src="home-editor.js" defer></script>
+</body>
+</html>

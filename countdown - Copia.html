@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Corner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="countdown.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Countdown Corner</h1>
+    <p>A little countdown to the things that matter ♡</p>
+  </header>
+
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="balance.html">BALANCE TRACKER</a>
+    <a href="ocs.html">OC ARCHIVE</a>
+    <a href="blog.html">PERSONAL BLOG</a>
+    <button onclick="window.location.href='countdown.html'">
+  COUNTDOWNS
+</button>
+
+</button>
+  </nav>
+
+  <main class="countdown-layout">
+    <section class="wide countdown-intro">
+      <p class="countdown-kicker">LITTLE THINGS TO LOOK FORWARD TO</p>
+      <h2>Counting down to something special...</h2>
+      <p>Birthdays, holidays, conventions, personal goals, and all the little days worth getting excited about.</p>
+      <p id="countdown-today"></p>
+
+<div id="countdown-reminders" class="countdown-reminders" hidden>
+  <h3>♡ Little reminders ♡</h3>
+  <div id="countdown-reminder-list"></div>
+</div>
+
+    <section class="wide countdown-form-section">
+      <h2 id="countdown-form-heading">Add a countdown</h2>
+
+      <form id="countdown-form">
+        <label for="countdown-title">What's the occasion?</label>
+        <input
+          id="countdown-title"
+          type="text"
+          maxlength="100"
+          placeholder="e.g. My birthday, convention day..."
+          required
+        >
+
+        <label for="countdown-date">When is it?</label>
+        <input id="countdown-date" type="date" required>
+
+        <label for="countdown-category">Category</label>
+        <select id="countdown-category">
+          <option value="Personal">Personal</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Holiday">Holiday</option>
+          <option value="Event">Event / convention</option>
+          <option value="Deadline">Deadline</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="countdown-note">A little note (optional)</label>
+        <textarea
+          id="countdown-note"
+          rows="2"
+          maxlength="300"
+          placeholder="Something to remember or look forward to..."
+        ></textarea>
+
+        <div class="countdown-form-actions">
+          <button type="submit" id="countdown-save-button">Add countdown ♡</button>
+          <button type="button" id="countdown-cancel-button" hidden>Cancel edit</button>
+        </div>
+
+        <p id="countdown-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="wide countdown-list-section">
+      <div class="countdown-list-heading">
+        <div>
+          <h2>My countdowns</h2>
+          <p id="countdown-count">No countdowns yet</p>
+        </div>
+
+        <label class="countdown-sort-label" for="countdown-sort">
+          Sort by
+          <select id="countdown-sort">
+            <option value="soonest">Coming up first</option>
+            <option value="latest">Furthest away first</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="countdown-list" class="countdown-grid"></div>
+
+      <div id="countdown-empty" class="countdown-empty">
+        <p class="countdown-empty-decoration">✿ ❀ ✿</p>
+        <h3>Your countdown corner is waiting!</h3>
+        <p>Add your first special date using the form above.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="date-time-note">
+    <span id="current-date">Loading date...</span>
+    <span id="current-time">Loading time...</span>
+  </div>
+</body>
+</html>

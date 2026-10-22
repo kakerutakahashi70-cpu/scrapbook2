@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Little Moodboard ♡</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .moodboard {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 18px 60px;
+      color: #493f36;
+      font-family: Georgia, serif;
+    }
+
+    .moodboard * { box-sizing: border-box; }
+
+    .mood-header {
+      padding: 25px;
+      margin-bottom: 20px;
+      background: #fffdf7;
+      border: 1px solid #ded3c2;
+      border-radius: 12px;
+    }
+
+    .mood-header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: normal;
+    }
+
+    .mood-header p { margin: 0; line-height: 1.6; }
+
+    .mood-home {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #795563;
+      text-decoration: none;
+    }
+
+    .mood-home:hover { text-decoration: underline; }
+
+    .mood-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .moodboard button,
+    .moodboard input,
+    .moodboard textarea,
+    .moodboard select { font: inherit; }
+
+    .moodboard button { cursor: pointer; }
+
+    .mood-toolbar input,
+    .mood-toolbar select {
+      flex: 1 1 170px;
+      min-width: 0;
+      padding: 11px;
+      border: 1px solid #d9c9b3;
+      border-radius: 8px;
+      background: #fffdf7;
+      color: #493f36;
+    }
+
+    .mood-btn {
+      padding: 11px 15px;
+      border: 1px solid #d9c9b3;
+      border-radius: 8px;
+      background: #fffdf7;
+      color: #493f36;
+    }
+
+    .mood-btn.primary {
+      background: #b77b86;
+      border-color: #b77b86;
+      color: white;
+    }
+
+    .mood-btn:hover { filter: brightness(.96); }
+
+    .mood-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .mood-categories button {
+      padding: 8px 13px;
+      border: 1px solid #ded3c2;
+      border-radius: 30px;
+      background: #fffdf7;
+      color: #493f36;
+    }
+
+    .mood-categories button.active {
+      background: #493f36;
+      color: white;
+    }
+
+    .mood-grid {
+      columns: 3 230px;
+      column-gap: 18px;
+    }
+
+    .mood-pin {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 18px;
+      padding: 12px;
+      break-inside: avoid;
+      border-radius: 5px 5px 12px 12px;
+      box-shadow: 2px 4px 10px #493f3615;
+      overflow-wrap: anywhere;
+    }
+
+    .mood-pin img {
+      display: block;
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 12px;
+    }
+
+    .mood-pin h2 {
+      margin: 5px 0 8px;
+      font-size: 1.2rem;
+      font-weight: normal;
+      line-height: 1.4;
+    }
+
+    .mood-pin p {
+      margin: 0 0 12px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-size: .96rem;
+    }
+
+    .mood-pin-category,
+    .mood-pin-date {
+      font-size: .78rem;
+      opacity: .75;
+    }
+
+    .mood-pin-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .mood-pin-actions button {
+      padding: 6px 9px;
+      border: 1px solid #493f3630;
+      border-radius: 6px;
+      background: #ffffff88;
+      color: #493f36;
+      font-size: .84rem;
+    }
+
+    .mood-empty {
+      padding: 35px 20px;
+      border: 1px dashed #d9c9b3;
+      border-radius: 12px;
+      background: #fffdf7;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .mood-dialog {
+      width: min(540px, calc(100% - 24px));
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 22px;
+      border: 1px solid #ded3c2;
+      border-radius: 14px;
+      background: #fffdf7;
+      color: #493f36;
+    }
+
+    .mood-dialog::backdrop { background: #30271f88; }
+
+    .mood-dialog h2 {
+      margin: 0 0 20px;
+      font-weight: normal;
+    }
+
+    .mood-field {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .mood-field input:not([type="radio"]),
+    .mood-field textarea,
+    .mood-field select {
+      width: 100%;
+      min-width: 0;
+      padding: 10px;
+      border: 1px solid #d9c9b3;
+      border-radius: 7px;
+      background: white;
+      color: #493f36;
+    }
+
+    .mood-field textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .mood-colors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .mood-colors label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .9rem;
+    }
+
+    .mood-preview {
+      display: block;
+      max-width: 100%;
+      max-height: 230px;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+
+    .mood-dialog-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 550px) {
+      .moodboard { padding: 12px 10px 40px; }
+      .mood-header { padding: 18px; }
+      .mood-grid { columns: 2 140px; column-gap: 10px; }
+      .mood-pin { padding: 9px; margin-bottom: 10px; }
+    }
+  </style>
+
+  <script src="art.js" defer></script>
+  <script src="universal-editor.js" defer></script>
+</head>
+
+<body>
+  <main class="moodboard">
+    <a class="mood-home" href="index.html">← Back to my little internet</a>
+
+    <header class="mood-header">
+      <h1>little things i love ♡</h1>
+      <p>A tiny collection of pretty pictures, little thoughts, and happy discoveries.</p>
+    </header>
+
+    <div class="mood-toolbar">
+      <button class="mood-btn primary" id="mood-add" type="button">＋ New pin</button>
+      <input id="mood-search" type="search" placeholder="Search your collection…" aria-label="Search pins">
+      <select id="mood-sort" aria-label="Sort pins">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="title">Title A–Z</option>
+      </select>
+    </div>
+
+    <nav class="mood-categories" id="mood-categories" aria-label="Filter pins">
+      <button class="active" type="button" data-category="All">All</button>
+      <button type="button" data-category="Fashion">Fashion</button>
+      <button type="button" data-category="Cats & Animals">Cats & Animals</button>
+      <button type="button" data-category="Art & References">Art & References</button>
+      <button type="button" data-category="Places">Places</button>
+      <button type="button" data-category="Food">Food</button>
+      <button type="button" data-category="Ideas">Ideas</button>
+      <button type="button" data-category="Miscellaneous">Miscellaneous</button>
+    </nav>
+
+    <section class="mood-grid" id="mood-grid" aria-label="Saved pins"></section>
+
+    <dialog class="mood-dialog" id="mood-dialog">
+      <form id="mood-form">
+        <h2 id="mood-dialog-title">Make a little pin ♡</h2>
+
+        <div class="mood-field">
+          <label for="mood-title">Title</label>
+          <input id="mood-title" maxlength="120" placeholder="A pretty dress, a little thought…">
+        </div>
+
+        <div class="mood-field">
+          <label for="mood-description">Your note</label>
+          <textarea id="mood-description" maxlength="5000" placeholder="Write whatever you want to remember…"></textarea>
+        </div>
+
+        <div class="mood-field">
+          <label for="mood-image">Picture (optional)</label>
+          <input id="mood-image" type="file" accept="image/*">
+          <img id="mood-preview" class="mood-preview" alt="Picture preview" hidden>
+          <button class="mood-btn" id="mood-remove-image" type="button">Remove picture</button>
+        </div>
+
+        <div class="mood-field">
+          <label for="mood-category">Category</label>
+          <select id="mood-category">
+            <option>Fashion</option>
+            <option>Cats & Animals</option>
+            <option>Art & References</option>
+            <option>Places</option>
+            <option>Food</option>
+            <option>Ideas</option>
+            <option>Miscellaneous</option>
+          </select>
+        </div>
+
+        <div class="mood-field">
+          <span>Sticky note color</span>
+          <div class="mood-colors">
+            <label><input type="radio" name="mood-color" value="#f5dce4" checked> 🌸 Pink</label>
+            <label><input type="radio" name="mood-color" value="#f7edbd"> 🌼 Butter</label>
+            <label><input type="radio" name="mood-color" value="#dcebd8"> 🌿 Mint</label>
+            <label><input type="radio" name="mood-color" value="#e5ddf5"> 💜 Lavender</label>
+            <label><input type="radio" name="mood-color" value="#dce9f4"> ☁ Blue</label>
+            <label><input type="radio" name="mood-color" value="#fff8e9"> 🤍 Cream</label>
+          </div>
+        </div>
+
+        <div class="mood-dialog-actions">
+          <button class="mood-btn" id="mood-cancel" type="button">Cancel</button>
+          <button class="mood-btn primary" type="submit">Save pin ♡</button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+</body>
+</html>

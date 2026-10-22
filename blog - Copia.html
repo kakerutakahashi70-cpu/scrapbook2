@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Blog</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Personal Blog</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="balance.html">BALANCE TRACKER</a>
+    <a href="ocs.html">OC ARCHIVE</a>
+    <a href="blog.html">PERSONAL BLOG</a>
+    <button onclick="window.location.href='countdown.html'">
+  COUNTDOWNS
+</button>
+  </nav>
+
+  <main class="blog-layout">
+    <section class="wide blog-editor">
+      <h2 id="editor-heading">Write a post</h2>
+
+      <form id="blog-form">
+        <label for="post-title">Post title</label>
+        <input
+          id="post-title"
+          type="text"
+          maxlength="150"
+          placeholder="Give your post a title..."
+        >
+
+        <label>Formatting</label>
+        <div class="editor-toolbar" role="toolbar" aria-label="Text formatting">
+          <button type="button" data-command="bold" title="Bold">
+            <strong>B</strong>
+          </button>
+          <button type="button" data-command="italic" title="Italic">
+            <em>I</em>
+          </button>
+          <button type="button" data-command="underline" title="Underline">
+            <u>U</u>
+          </button>
+          <button type="button" data-command="formatBlock" data-value="h2">
+            Heading
+          </button>
+          <button type="button" data-command="formatBlock" data-value="h3">
+            Small heading
+          </button>
+          <button type="button" data-command="formatBlock" data-value="p">
+            Paragraph
+          </button>
+
+          <label class="toolbar-label" for="word-color">Word color</label>
+          <input
+            id="word-color"
+            class="color-picker"
+            type="color"
+            value="#a34f70"
+            title="Choose a text color"
+          >
+          <button type="button" id="apply-color">Apply color</button>
+
+          <button type="button" id="add-local-image">Add picture/GIF</button>
+          <button type="button" id="add-image-url">Add image URL</button>
+          <input
+            id="image-upload"
+            type="file"
+            accept="image/*"
+            multiple
+            hidden
+          >
+        </div>
+
+        <p class="editor-help">
+          Click in the writing area before formatting text. To color individual
+          words, select them first and then choose a color.
+        </p>
+
+        <label for="post-content">Your post</label>
+        <div
+          id="post-content"
+          class="rich-editor"
+          contenteditable="true"
+          role="textbox"
+          aria-label="Write your blog post"
+          aria-multiline="true"
+          data-placeholder="What's on your mind?"
+        ></div>
+
+        <div class="editor-actions">
+          <button type="submit" id="publish-button">Publish post</button>
+          <button type="button" id="cancel-edit" hidden>Cancel edit</button>
+          <button type="button" id="clear-editor">Clear draft</button>
+        </div>
+
+        <p id="blog-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="wide">
+      <div class="blog-feed-heading">
+        <h2>Your posts</h2>
+        <span id="post-count">0 posts</span>
+      </div>
+      <div id="blog-posts" class="blog-posts"></div>
+      <p id="blog-empty">No posts yet. Your first post can go here!</p>
+    </section>
+  </main>
+
+  <div class="date-time-note">
+    <span id="current-date">Loading date...</span>
+    <span id="current-time">Loading time...</span>
+  </div>
+</body>
+</html>

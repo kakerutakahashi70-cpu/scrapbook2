@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OC Archive</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="ocs.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>OC Archive</h1>
+    <p>Your personal character encyclopedia ♡</p>
+  </header>
+
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="balance.html">BALANCE TRACKER</a>
+    <a href="ocs.html">OC ARCHIVE</a>
+    <a href="blog.html">PERSONAL BLOG</a>
+    <a href="countdown.html">COUNTDOWNS</a>
+  </nav>
+
+  <main class="wiki-layout">
+
+    <section class="wide wiki-intro" id="wiki-intro">
+      <p class="wiki-kicker">THE CHARACTER LIBRARY</p>
+      <h2>Character Encyclopedia</h2>
+      <p>A little home for all your characters, their stories, and their connections.</p>
+
+      <label for="wiki-search">Search your archive</label>
+      <input
+        id="wiki-search"
+        type="search"
+        placeholder="Search names, aliases, roles, stories..."
+        autocomplete="off"
+      >
+
+      <p id="wiki-search-count" aria-live="polite"></p>
+    </section>
+
+    <section class="wide wiki-library" id="wiki-library-section">
+      <div class="wiki-section-heading">
+        <h2>Entries</h2>
+        <button type="button" id="new-character">+ New entry</button>
+      </div>
+
+      <div id="wiki-entry-list" class="wiki-entry-list"></div>
+
+      <div id="wiki-empty" class="wiki-empty">
+        <p class="wiki-flower">✿ ❀ ✿</p>
+        <h3>Your archive is waiting!</h3>
+        <p>Create your first character entry to get started.</p>
+      </div>
+    </section>
+
+    <section class="wide wiki-editor" id="wiki-editor-section" hidden>
+      <button type="button" id="wiki-back-button">← Back to entries</button>
+
+      <p class="wiki-kicker">CHARACTER FILE</p>
+      <h2 id="wiki-editor-heading">Create an entry</h2>
+
+      <form id="wiki-form">
+        <label for="wiki-name">Character name *</label>
+        <input id="wiki-name" type="text" maxlength="120" required>
+
+        <label for="wiki-aliases">Aliases and nicknames</label>
+        <input id="wiki-aliases" type="text" maxlength="300">
+
+        <label for="wiki-role">Occupation / role</label>
+        <input id="wiki-role" type="text" maxlength="200">
+
+        <label for="wiki-age">Age</label>
+        <input id="wiki-age" type="text" maxlength="80">
+
+        <label for="wiki-species">Species / universe</label>
+        <input id="wiki-species" type="text" maxlength="200">
+
+        <label for="wiki-portrait">Portrait image URL</label>
+        <input id="wiki-portrait" type="url" placeholder="https://...">
+
+        <label for="wiki-local-image">Or upload a portrait</label>
+        <input id="wiki-local-image" type="file" accept="image/*">
+
+        <div id="wiki-current-image-preview" hidden>
+          <p>Portrait preview</p>
+          <img id="wiki-image-preview" alt="Character portrait preview">
+          <button type="button" id="wiki-remove-image">Remove portrait</button>
+        </div>
+
+        <label for="wiki-summary">Overview</label>
+        <textarea id="wiki-summary" rows="3" maxlength="3000"></textarea>
+
+        <label for="wiki-personality">Personality</label>
+        <textarea id="wiki-personality" rows="4"></textarea>
+
+        <label for="wiki-backstory">Backstory</label>
+        <textarea id="wiki-backstory" rows="6"></textarea>
+
+        <label for="wiki-abilities">Abilities and skills</label>
+        <textarea id="wiki-abilities" rows="4"></textarea>
+
+        <label for="wiki-relationships">Relationships</label>
+        <textarea id="wiki-relationships" rows="4"></textarea>
+
+        <label for="wiki-notes">Additional notes and trivia</label>
+        <textarea id="wiki-notes" rows="4"></textarea>
+
+        <div class="wiki-form-actions">
+          <button type="submit" id="wiki-save-button">Save entry ♡</button>
+          <button type="button" id="wiki-cancel-edit">Cancel</button>
+        </div>
+
+        <p id="wiki-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="wide wiki-article" id="wiki-article" hidden>
+      <button type="button" id="wiki-article-back">← Back to entries</button>
+
+      <div class="wiki-article-heading">
+        <div>
+          <p class="wiki-kicker">CHARACTER FILE</p>
+          <h2 id="article-name"></h2>
+          <p id="article-aliases"></p>
+        </div>
+
+        <img id="article-portrait" alt="" hidden>
+      </div>
+
+      <aside class="wiki-infobox">
+        <h3>At a glance</h3>
+        <p><strong>Role:</strong> <span id="article-role"></span></p>
+        <p><strong>Age:</strong> <span id="article-age"></span></p>
+        <p><strong>Species / universe:</strong> <span id="article-species"></span></p>
+      </aside>
+
+      <div class="wiki-article-content">
+        <section id="article-summary-section">
+          <h3>Overview</h3>
+          <p id="article-summary"></p>
+        </section>
+
+        <section id="article-personality-section">
+          <h3>Personality</h3>
+          <p id="article-personality"></p>
+        </section>
+
+        <section id="article-backstory-section">
+          <h3>Backstory</h3>
+          <p id="article-backstory"></p>
+        </section>
+
+        <section id="article-abilities-section">
+          <h3>Abilities and skills</h3>
+          <p id="article-abilities"></p>
+        </section>
+
+        <section id="article-relationships-section">
+          <h3>Relationships</h3>
+          <p id="article-relationships"></p>
+        </section>
+
+        <section id="article-notes-section">
+          <h3>Additional notes</h3>
+          <p id="article-notes"></p>
+        </section>
+      </div>
+
+      <div class="wiki-related-section">
+        <h3>Related characters</h3>
+        <p class="wiki-muted">Connect characters from the same story or universe.</p>
+        <div id="article-related" class="wiki-related-list"></div>
+      </div>
+
+      <div class="wiki-article-actions">
+        <button type="button" id="wiki-edit-button">Edit entry</button>
+        <button type="button" id="wiki-delete-button">Delete entry</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="date-time-note">
+    <span id="current-date">Loading date...</span>
+    <span id="current-time">Loading time...</span>
+  </div>
+</body>
+</html>
+
